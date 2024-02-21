@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Shopping List</title>
+</head>
+<body>
+<h1>Car Shopping List</h1>
+<ul>
+    <li th:each="carItem : ${carItems}">
+        <span th:text="${carItem.carBrand}"></span> -
+        <span th:text="${carItem.price}"></span> -
+        <span th:text="${carItem.description}"></span> -
+        <a th:href="${carItem.hyperlink}" target="_blank">More Info</a>
+    </li>
+</ul>
+<form action="/add" method="post">
+    <input type="text" name="carBrand" placeholder="Car Brand"/>
+    <input type="number" name="price" placeholder="Price"/>
+    <input type="text" name="description" placeholder="Description"/>
+    <input type="text" name="hyperlink" placeholder="Hyperlink"/>
+    <button type="submit">Add Car Item</button>
+</form>
+</body>
+</html>
